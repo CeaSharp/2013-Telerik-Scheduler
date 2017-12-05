@@ -31,6 +31,15 @@ namespace telerik_scheduler_sandbox {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// pitsformdecorator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadFormDecorator pitsformdecorator;
+        
+        /// <summary>
         /// scriptmanager control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace telerik_scheduler_sandbox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager;
+        
+        /// <summary>
+        /// basemenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadMenu basemenu;
         
         /// <summary>
         /// content control.

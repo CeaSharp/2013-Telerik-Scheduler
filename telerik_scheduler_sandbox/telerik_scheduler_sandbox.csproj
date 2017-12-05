@@ -97,6 +97,7 @@
       <DependentUpon>AdvancedFormCS.ascx</DependentUpon>
     </Compile>
     <Compile Include="bL\basebusiness.cs" />
+    <Compile Include="bL\menu.cs" />
     <Compile Include="bL\Schedule.cs" />
     <Compile Include="bL\StandardSlot.cs" />
     <Compile Include="bL\Talk.cs" />
@@ -110,6 +111,7 @@
     </Compile>
     <Compile Include="dL\basedata.cs" />
     <Compile Include="dL\CustomSlot.cs" />
+    <Compile Include="dL\menuitem.cs" />
     <Compile Include="dL\Schedule.cs" />
     <Compile Include="dL\StandardSlot.cs" />
     <Compile Include="dL\Venue.cs" />
@@ -161,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="css\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

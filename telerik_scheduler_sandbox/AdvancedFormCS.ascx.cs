@@ -33,6 +33,8 @@ namespace telerik_scheduler_sandbox
         public AdvancedFormMode Mode
         { get; set; }
         [Bindable(BindableSupport.Yes, BindingDirection.TwoWay)]
+        public string HeaderID { get; set; }
+        [Bindable(BindableSupport.Yes, BindingDirection.TwoWay)]
         public string DetailID { get; set; }
         [Bindable(BindableSupport.Yes, BindingDirection.TwoWay)]
         public string TalkID
@@ -80,7 +82,7 @@ namespace telerik_scheduler_sandbox
             {
                 if (Owner.RecurrenceSupport)
                 {
-                    bool dateSpecified = StartDate.SelectedDate.HasValue && EndDate.SelectedDate.HasValue;
+                    bool dateSpecified = StartDate.SelectedDate.HasValue;
                     bool timeSpecified = StartTime.SelectedDate.HasValue && EndTime.SelectedDate.HasValue;
 
                     if ((AllDayEvent.Checked && !dateSpecified) ||
@@ -177,11 +179,10 @@ namespace telerik_scheduler_sandbox
         {
             get
             {
-                DateTime result = EndDate.SelectedDate.Value.Date;
-
+                DateTime result = StartDate.SelectedDate.Value.Date;
                 if (AllDayEvent.Checked)
                 {
-                    result = result.Date.AddDays(1);
+                    result = result.Date;
                 }
                 else
                 {
@@ -194,7 +195,6 @@ namespace telerik_scheduler_sandbox
 
             set
             {
-                EndDate.SelectedDate = Owner.UtcToDisplay(value);
                 EndTime.SelectedDate = Owner.UtcToDisplay(value);
             }
         }
@@ -217,8 +217,6 @@ namespace telerik_scheduler_sandbox
             base.OnPreRender(e);
             if (!FormInitialized)
             {
-                if (IsAllDayAppointment(Appointment))
-                    EndDate.SelectedDate = EndDate.SelectedDate.Value.AddDays(-1);
                 FormInitialized = true;
             }
             if (String.IsNullOrEmpty(Appointment.Attributes["VenueID"]))
@@ -256,9 +254,6 @@ namespace telerik_scheduler_sandbox
 
             StartTimeValidator.ErrorMessage = Owner.Localization.AdvancedStartTimeRequired;
             StartTimeValidator.ValidationGroup = Owner.ValidationGroup;
-
-            EndDateValidator.ErrorMessage = Owner.Localization.AdvancedEndDateRequired;
-            EndDateValidator.ValidationGroup = Owner.ValidationGroup;
 
             EndTimeValidator.ErrorMessage = Owner.Localization.AdvancedEndTimeRequired;
             EndTimeValidator.ValidationGroup = Owner.ValidationGroup;

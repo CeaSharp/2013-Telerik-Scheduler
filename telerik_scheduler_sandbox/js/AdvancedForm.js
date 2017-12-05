@@ -25,17 +25,22 @@ window.SchedulerAdvancedTemplate = function (schedulerElement, formElement, isMo
     this._schedulerElementId = this._schedulerElement.id;
     this._isModal = isModal;
 	this._eventNamespace = schedulerElement.id;
-
+    debugger
 	// We need to obtain the ID of the naming container that
 	// contains the advanced template. We can find it from
 	// the ID of a known element hosted in the form,
 	// such as BasicControlsPanel.
-	var basicControlsPanel = $("div.rsAdvBasicControls", formElement);
-	if (basicControlsPanel.length == 0)
-		return;
-
-	var basicControlsPanelId = basicControlsPanel[0].id;
-	this._templateId = basicControlsPanelId.substring(0, basicControlsPanelId.lastIndexOf("_"));
+	// var basicControlsPanel = $("div.rsAdvBasicControls", formElement);
+	// if (basicControlsPanel.length == 0)
+	// 	return;
+    // 
+	// var basicControlsPanelId = basicControlsPanel[0].id;
+    // this._templateId = basicControlsPanelId.substring(0, basicControlsPanelId.lastIndexOf("_"));
+    var buttonControlsPanel = $("div.rsAdvButtonWrapper", this._formElement);
+    if (buttonControlsPanel.length == 0)
+        return;
+    var buttonControlsPanelId = buttonControlsPanel[0].id;
+    this._templateId = buttonControlsPanelId.substring(0, buttonControlsPanelId.lastIndexOf("_"));
 };
 
 window.SchedulerAdvancedTemplate._adjustHeight = function(schedulerElement)

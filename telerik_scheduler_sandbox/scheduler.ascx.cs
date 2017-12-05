@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 using Telerik.Web.UI;
 
 namespace telerik_scheduler_sandbox
@@ -11,7 +11,13 @@ namespace telerik_scheduler_sandbox
     public partial class scheduler : System.Web.UI.UserControl
     {
         private const string AppointmentsKey = "AppointmentCollection";
-        private const Int32 _programid = 773;
+        public static Appointment _draggedappt { get; set; }
+        public static Int32 _programid { get; set; }
+        public enum swapaction
+        {
+            swap,
+            replace
+        }
         protected override void OnInit(EventArgs e)
         {
             ScriptManager manager = RadScriptManager.GetCurrent(Page);
@@ -53,8 +59,30 @@ namespace telerik_scheduler_sandbox
 
         protected void radcalendar_AppointmentUpdate(object sender, AppointmentUpdateEventArgs e)
         {
-            int _eid = 0;
-            _eid = e.Appointment.ID.ToString() != "" ? Convert.ToInt32(e.Appointment.ID.ToString()) : 0;
+            Int32 _hdrid = 0;
+            Int32 _dtlid = 0;
+            string _swapaction = this.hdnapptaction.Value;
+            swapaction _sa = (swapaction)System.Enum.Parse(typeof(swapaction), _swapaction);
+            string _slotappt = this.hdnexistingappt.Value;
+            switch (_sa)
+            {
+                case swapaction.replace:
+                    /*Int32 dragtalk = Convert.ToInt32(_dragappt.Attributes["TalkID"].ToString());
+                    Int32 slottalk = Convert.ToInt32(_slotappt.Attributes["TalkID"].ToString());
+                    _dragappt.Attributes["TalkID"] = dragtalk.ToString();
+                    _slotappt.Attributes["TalkID"] = slottalk.ToString();*/
+                        
+                    break;
+                case swapaction.swap:
+                    break;
+            }
+            _hdrid = String.IsNullOrEmpty(e.Appointment.Attributes["HeaderID"].ToString()) ? 0: Int32.Equals(Convert.ToInt32(e.Appointment.Attributes["HeaderID"].ToString()), 0) ? 0 : Convert.ToInt32(e.Appointment.Attributes["HeaderID"].ToString());
+            if (_hdrid > 0)
+                _dtlid = String.IsNullOrEmpty(e.Appointment.Attributes["DetailID"].ToString()) ? 0 : Int32.Equals(Convert.ToInt32(e.Appointment.Attributes["DetailID"].ToString()), 0) ? 0 : Convert.ToInt32(e.Appointment.Attributes["DetailID"].ToString());
+            else
+                throw new MissingMemberException(@"Header record is missing for this Detail item");
+
+            
             /*switch (e.ModifiedAppointment.Attributes["EventTypeID"].ToString())
             {
                 case "999":

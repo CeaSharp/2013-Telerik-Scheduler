@@ -44,6 +44,7 @@ namespace telerik_scheduler_sandbox.dL
             public string ID { get; set; }
             public string CustomSlotTitle { get; set; }
             public string Description { get; set; }
+            public string HeaderID { get; set; }
             public string DetailID { get; set; }
             public DateTime End { get; set; }
             public string RecurrenceParentID { get; set; }
@@ -61,10 +62,11 @@ namespace telerik_scheduler_sandbox.dL
             private AppointmentInfo()
             { ID = Guid.NewGuid().ToString(); }
 
-            public AppointmentInfo(string _dtlid, string _talkid, string _talktitle, string _standardID, string _standardname, string _custom, string _venueid, string _venuename, DateTime _start, DateTime _end, string _recrule, string _recparentid) : this()
+            public AppointmentInfo(string _hdrid, string _dtlid, string _speaker, string _talkid, string _talktitle, string _standardID, string _standardname, string _custom, string _venueid, string _venuename, DateTime _start, DateTime _end, string _recrule, string _recparentid) : this()
             {
                 CustomSlotTitle = !String.IsNullOrEmpty(_custom) ? _custom : "";
                 Description = "";
+                HeaderID = _hdrid;
                 DetailID = _dtlid;
                 End = _end;
                 RecurrenceParentID = _recparentid;
@@ -73,7 +75,7 @@ namespace telerik_scheduler_sandbox.dL
                 StandardSlotID = !String.IsNullOrEmpty(_standardID) ? _standardID : "";
                 StandardSlotTitle = !String.IsNullOrEmpty(_standardname) ? _standardname : "";
                 Start = _start;
-                Subject = !String.IsNullOrEmpty(_talktitle) ? _talktitle : !String.IsNullOrEmpty(_standardname) ? _standardname : !String.IsNullOrEmpty(_custom) ? _custom : "";
+                Subject = !String.IsNullOrEmpty(_talktitle) ? String.Format("{0} - {1}", _speaker, _talktitle ) : !String.IsNullOrEmpty(_standardname) ? _standardname : !String.IsNullOrEmpty(_custom) ? _custom : "";
                 TalkID = !String.IsNullOrEmpty(_talkid) ? _talkid : "";
                 TalkTitle = !String.IsNullOrEmpty(_talktitle) ? _talktitle : "";
                 VenueID = !String.IsNullOrEmpty(_venueid) ? _venueid : "";
@@ -113,14 +115,17 @@ namespace telerik_scheduler_sandbox.dL
                 RecurrenceRule = source.RecurrenceRule;
                 RecurrenceParentID = source.RecurrenceParentID != null ? source.RecurrenceParentID.ToString() : string.Empty;
                 CustomSlotTitle = source.Attributes["CustomSlotTitle"].ToString();
+                HeaderID = source.Attributes["HeaderID"].ToString();
                 DetailID = source.Attributes["DetailID"].ToString();
                 StandardSlotID = source.Attributes["StandardSlotID"].ToString();
-                StandardSlotTitle = source.Attributes["StandardSlotTitle"].ToString();
                 TalkID = source.Attributes["TalkID"].ToString();
-                TalkTitle = source.Attributes["TalkTitle"].ToString();
                 VenueID = source.Attributes["VenueID"].ToString();
-                VenueName = source.Attributes["VenueName"].ToString();
             }
+        }
+
+        public static void process(Int32? _hdrid, Int32? _dtlid, Int32 _pid, Int32? _talkid, Int32 _standardid, string _custom, Int32? _venueid, DateTime _start, DateTime _end, string _recrule)
+        {
+            
         }
     }
 }

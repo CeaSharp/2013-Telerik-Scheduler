@@ -25,9 +25,9 @@ namespace telerik_scheduler_sandbox.bL
         }
         public static void bind_appointments()
         {
-            Appointments.Add(new dL.Schedule.AppointmentInfo("10489", "", "", "1", "Check-In/Breakfast (Hosted by IPAM)", "", "", "", Convert.ToDateTime("12/4/2017 8:30:00 AM"), Convert.ToDateTime("12/4/2017 8:45:00 AM"), "", ""));
-            Appointments.Add(new dL.Schedule.AppointmentInfo("2", "", "", "2", "Breakfast", "", "1", "IPAM Building", Convert.ToDateTime("12/1/2017 09:00:00 AM"), Convert.ToDateTime("12/1/2017 09:30:00 AM"), "", ""));
-            Appointments.Add(new dL.Schedule.AppointmentInfo("3", "", "", "", "", "Side Panel with Daniel Burke", "2", "IPAM Building - Room 1200", Convert.ToDateTime("12/1/2017 09:30:00 AM"), Convert.ToDateTime("12/1/2017 10:30:00 AM"), "", ""));
+            Appointments.Add(new dL.Schedule.AppointmentInfo("1", "10489", "", "", "", "1", "Check-In/Breakfast (Hosted by IPAM)", "", "", "", Convert.ToDateTime("12/4/2017 8:30:00 AM"), Convert.ToDateTime("12/4/2017 8:45:00 AM"), "", ""));
+            Appointments.Add(new dL.Schedule.AppointmentInfo("1", "2", "", "", "", "2", "Breakfast", "", "1", "IPAM Building", Convert.ToDateTime("12/1/2017 09:00:00 AM"), Convert.ToDateTime("12/1/2017 09:30:00 AM"), "", ""));
+            Appointments.Add(new dL.Schedule.AppointmentInfo("1", "3", "", "", "", "", "", "Side Panel with Daniel Burke", "2", "IPAM Building - Room 1200", Convert.ToDateTime("12/1/2017 09:30:00 AM"), Convert.ToDateTime("12/1/2017 10:30:00 AM"), "", ""));
         }
         public static void bind_appointments(Int32 _programID)
         {
@@ -53,7 +53,7 @@ namespace telerik_scheduler_sandbox.bL
                     string _recrule = _recurrence != null ? _recurrence.recurrence : String.Empty;
                     string _recparentid = _recurrence != null ? _recurrence.dtlID.ToString() : String.Empty;
 
-                    Appointments.Add(new dL.Schedule.AppointmentInfo(_item.dtlID.ToString(), _talkid, _talktitle, _standardid, _standardtitle, _customtitle, _venueid, _venuename, _item.start, _item.end, _recrule, _recparentid));
+                    Appointments.Add(new dL.Schedule.AppointmentInfo(_item.hdrid.ToString(), _item.dtlID.ToString(), _speaker, _talkid, _talktitle, _standardid, _standardtitle, _customtitle, _venueid, _venuename, _item.start, _item.end, _recrule, _recparentid));
                     //Appointments.Add(new dL.Schedule.AppointmentInfo(_item.dtlID.ToString(), _talk, _standard, _custom, _venue, _item.start, _item.end, _recurrence != null ? _recurrence.recurrence : String.Empty, _recurrence != null ? _recurrence.dtlID.ToString() : String.Empty));
                 }
             }
@@ -68,5 +68,8 @@ namespace telerik_scheduler_sandbox.bL
             }
             return null;
         }
+
+        public static void process()
+        { }
     }
 }

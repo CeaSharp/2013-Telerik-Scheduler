@@ -10,7 +10,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <telerik:RadScriptManager ID="scriptmanager" runat="server">
+        <telerik:RadFormDecorator ID="pitsformdecorator" runat="server" DecoratedControls="All" EnableRoundedCorners="true" />
+        <telerik:RadScriptManager ID="scriptmanager" runat="server" EnablePageMethods="true" >
             <Scripts>
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
                 <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
@@ -21,9 +22,29 @@
         </telerik:RadStyleSheetManager>
         <div>
             <telerik:RadAjaxManager ID="RadAjaxManager" runat="server"></telerik:RadAjaxManager>
+            <div id="navigation" style="position: absolute; z-index: 100;">
+                <telerik:RadMenu ID="basemenu" runat="server" CausesValidation="False" EnableShadows="True" EnableImageSprites="True" EnableRoundedCorners="True" Width="1000px" ExpandDelay="0" OnItemDataBound="basemenu_ItemDataBound" ClickToOpen="True">
+                    <ExpandAnimation Type="InQuad" Duration="100" />
+                </telerik:RadMenu>
+            </div>
             <asp:ContentPlaceHolder ID="content" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
+    <script type="text/javascript">
+
+        $telerik.$(document).ready(function ($) {
+            $(function () {
+                $('html .RadMenu a').each(function () {
+                    if ($(this).attr('href') === '#') {
+                        var classString = $(this).attr('class');
+                        if (classString.indexOf('rmLink') > -1) {
+                            $(this).attr('href', 'javascript:;');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

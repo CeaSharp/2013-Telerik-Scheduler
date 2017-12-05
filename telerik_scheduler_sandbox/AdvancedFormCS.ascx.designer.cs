@@ -31,13 +31,22 @@ namespace telerik_scheduler_sandbox {
         protected global::System.Web.UI.WebControls.Panel AdvOptionsScroll;
         
         /// <summary>
-        /// lbtalk control.
+        /// valSummary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbtalk;
+        protected global::System.Web.UI.WebControls.ValidationSummary valSummary;
+        
+        /// <summary>
+        /// lbltalk control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbltalk;
         
         /// <summary>
         /// cbtalk control.
@@ -103,6 +112,15 @@ namespace telerik_scheduler_sandbox {
         protected global::Telerik.Web.UI.RadComboBox cbvenue;
         
         /// <summary>
+        /// lbstartdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbstartdate;
+        
+        /// <summary>
         /// StartDate control.
         /// </summary>
         /// <remarks>
@@ -110,6 +128,15 @@ namespace telerik_scheduler_sandbox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadDatePicker StartDate;
+        
+        /// <summary>
+        /// lbstarttime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbstarttime;
         
         /// <summary>
         /// StartTime control.
@@ -121,13 +148,13 @@ namespace telerik_scheduler_sandbox {
         protected global::Telerik.Web.UI.RadTimePicker StartTime;
         
         /// <summary>
-        /// EndDate control.
+        /// lbendtime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDatePicker EndDate;
+        protected global::System.Web.UI.WebControls.Label lbendtime;
         
         /// <summary>
         /// EndTime control.
@@ -139,6 +166,33 @@ namespace telerik_scheduler_sandbox {
         protected global::Telerik.Web.UI.RadTimePicker EndTime;
         
         /// <summary>
+        /// lbenddate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbenddate;
+        
+        /// <summary>
+        /// EndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDatePicker EndDate;
+        
+        /// <summary>
+        /// lballday control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lballday;
+        
+        /// <summary>
         /// AllDayEvent control.
         /// </summary>
         /// <remarks>
@@ -146,15 +200,6 @@ namespace telerik_scheduler_sandbox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox AllDayEvent;
-        
-        /// <summary>
-        /// ReminderDropDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox ReminderDropDown;
         
         /// <summary>
         /// StartDateValidator control.
@@ -173,15 +218,6 @@ namespace telerik_scheduler_sandbox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator StartTimeValidator;
-        
-        /// <summary>
-        /// EndDateValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator EndDateValidator;
         
         /// <summary>
         /// EndTimeValidator control.
@@ -209,24 +245,6 @@ namespace telerik_scheduler_sandbox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField etypeid;
-        
-        /// <summary>
-        /// eloc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox eloc;
-        
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// ResetExceptions control.
